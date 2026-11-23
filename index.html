@@ -1,0 +1,1318 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R星吃瓜_游戏文化影像社区 | 玩家视角的深度观察与社区现场</title>
+<meta name="description" content="R星吃瓜是专注游戏文化与玩家社区的影像社区官方网站，以原创高清视频记录热点观察、深度解析与创作者故事，打造值得信赖的游戏内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1117'/%3E%3Cpath d='M18 46V18h12c7 0 11 3.6 11 9.4 0 4.4-2.4 7.4-6.3 8.6L42 46h-7.6l-5.7-8.4H25V46h-7zm7-14h4.6c3 0 4.8-1.4 4.8-4s-1.8-3.8-4.8-3.8H25V32z' fill='%23ff5c39'/%3E%3Ccircle cx='50' cy='20' r='4' fill='%23ffd166'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --rx-bg:#0f1117;
+    --rx-bg-soft:#151925;
+    --rx-panel:#1b2030;
+    --rx-panel-2:#212739;
+    --rx-line:rgba(255,255,255,.09);
+    --rx-line-strong:rgba(255,255,255,.18);
+    --rx-text:#eef1f7;
+    --rx-muted:#9aa4bc;
+    --rx-muted-2:#727d99;
+    --rx-accent:#ff5c39;
+    --rx-accent-2:#ffd166;
+    --rx-neon:#3ce6c4;
+    --rx-radius:16px;
+    --rx-sticky:132px;
+    --rx-max:1200px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:var(--rx-sticky)}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 85% -10%,rgba(60,230,196,.10),transparent 60%),
+      radial-gradient(900px 500px at 5% 0%,rgba(255,92,57,.12),transparent 55%),
+      var(--rx-bg);
+    color:var(--rx-text);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer}
+  h1,h2,h3,h4{margin:0;line-height:1.3;letter-spacing:.2px;font-weight:700}
+  p{margin:0}
+  ul{margin:0;padding:0;list-style:none}
+  .rx-container{width:100%;max-width:var(--rx-max);margin:0 auto;padding:0 20px}
+  .rx-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--rx-accent-2);font-weight:700;
+  }
+  .rx-eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--rx-accent),var(--rx-accent-2))}
+  .rx-section{padding:64px 0}
+  .rx-section--tight{padding:44px 0}
+  .rx-section-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:30px}
+  .rx-section-head h2{font-size:clamp(22px,2.6vw,32px)}
+  .rx-section-head .rx-section-sub{color:var(--rx-muted);font-size:14px;max-width:560px;margin-top:8px}
+  .rx-tag{
+    display:inline-block;font-size:12px;padding:3px 10px;border-radius:999px;
+    background:rgba(255,92,57,.13);color:#ff9d85;border:1px solid rgba(255,92,57,.28);
+    line-height:1.6;margin-right:6px;margin-bottom:4px;
+  }
+  .rx-tag--cyan{background:rgba(60,230,196,.10);color:#8ff3e1;border-color:rgba(60,230,196,.26)}
+  .rx-tag--gold{background:rgba(255,209,102,.11);color:#ffdf9c;border-color:rgba(255,209,102,.3)}
+
+  /* ---------- 公告条 & 页头 ---------- */
+  .rx-topbar{
+    position:sticky;top:0;z-index:60;
+    background:linear-gradient(90deg,rgba(255,92,57,.16),rgba(60,230,196,.10));
+    border-bottom:1px solid var(--rx-line);
+    backdrop-filter:blur(14px);
+  }
+  .rx-topbar-inner{
+    display:flex;align-items:center;gap:14px;
+    min-height:44px;padding:6px 20px;max-width:var(--rx-max);margin:0 auto;
+    font-size:13px;color:#d8deec;overflow:hidden;
+  }
+  .rx-topbar-label{
+    flex:none;font-size:11px;font-weight:800;letter-spacing:.14em;
+    background:var(--rx-accent);color:#1a0d09;border-radius:6px;padding:2px 8px;
+  }
+  .rx-topbar-track{display:flex;gap:34px;white-space:nowrap;animation:rxMarquee 26s linear infinite}
+  .rx-topbar-track span{color:#c6cee0}
+  .rx-topbar-track b{color:var(--rx-accent-2);font-weight:700}
+  @keyframes rxMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.rx-topbar-track{animation:none}}
+
+  .rx-header{
+    position:sticky;top:44px;z-index:55;
+    background:rgba(15,17,23,.86);
+    border-bottom:1px solid var(--rx-line);
+    backdrop-filter:blur(16px);
+  }
+  .rx-header-inner{
+    display:flex;align-items:center;gap:20px;
+    min-height:74px;max-width:var(--rx-max);margin:0 auto;padding:8px 20px;
+  }
+  .rx-brand{display:flex;align-items:center;gap:11px;flex:none}
+  .rx-brand-mark{
+    width:42px;height:42px;border-radius:12px;flex:none;
+    background:linear-gradient(145deg,#1f2434,#12151f);
+    border:1px solid var(--rx-line-strong);
+    display:grid;place-items:center;
+    font-weight:900;font-size:19px;color:var(--rx-accent);
+    box-shadow:0 0 0 1px rgba(255,92,57,.15),0 8px 24px -12px rgba(255,92,57,.8);
+  }
+  .rx-brand-text b{display:block;font-size:17px;letter-spacing:.5px}
+  .rx-brand-text small{display:block;font-size:10.5px;color:var(--rx-muted-2);letter-spacing:.22em}
+  .rx-nav{display:flex;gap:4px;margin-left:12px;flex-wrap:wrap}
+  .rx-nav a{
+    font-size:14px;color:var(--rx-muted);padding:8px 12px;border-radius:9px;
+    transition:color .2s,background .2s;
+  }
+  .rx-nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+  .rx-header-tools{display:flex;align-items:center;gap:10px;margin-left:auto}
+  .rx-search{position:relative;display:flex;align-items:center}
+  .rx-search input{
+    width:196px;background:var(--rx-panel);border:1px solid var(--rx-line-strong);
+    color:var(--rx-text);border-radius:10px;padding:9px 12px 9px 34px;font-size:13px;
+    outline:none;transition:border-color .2s,width .2s;
+  }
+  .rx-search input:focus{border-color:var(--rx-accent);width:230px}
+  .rx-search::before{
+    content:"⌕";position:absolute;left:11px;font-size:16px;color:var(--rx-muted-2);pointer-events:none;
+  }
+  .rx-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    border-radius:10px;padding:9px 16px;font-size:13.5px;font-weight:600;
+    border:1px solid var(--rx-line-strong);background:transparent;color:var(--rx-text);
+    transition:transform .18s,background .18s,border-color .18s,color .18s;
+  }
+  .rx-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.07)}
+  .rx-btn--primary{
+    background:linear-gradient(135deg,var(--rx-accent),#ff8055);color:#1b0d08;border-color:transparent;
+    box-shadow:0 10px 26px -12px rgba(255,92,57,.9);
+  }
+  .rx-btn--primary:hover{background:linear-gradient(135deg,#ff6d4d,#ff9a72)}
+  .rx-btn--ghost{color:var(--rx-accent-2);border-color:rgba(255,209,102,.35)}
+  .rx-nav-toggle{
+    display:none;background:var(--rx-panel);border:1px solid var(--rx-line-strong);
+    color:var(--rx-text);border-radius:10px;padding:8px 11px;font-size:16px;line-height:1;
+  }
+  .rx-mobile-nav{display:none;border-top:1px solid var(--rx-line);background:var(--rx-bg-soft)}
+  .rx-mobile-nav.is-open{display:block}
+  .rx-mobile-nav ul{max-width:var(--rx-max);margin:0 auto;padding:10px 20px 18px;display:grid;gap:4px}
+  .rx-mobile-nav a{display:block;padding:10px 12px;border-radius:9px;color:var(--rx-muted);font-size:14px}
+  .rx-mobile-nav a:hover{background:rgba(255,255,255,.06);color:#fff}
+
+  /* ---------- 首屏 ---------- */
+  .rx-hero{padding:56px 0 24px;position:relative;overflow:hidden}
+  .rx-hero-grid{
+    display:grid;grid-template-columns:minmax(0,6fr) minmax(0,4fr);
+    gap:34px;align-items:center;
+  }
+  .rx-hero h1{
+    font-size:clamp(38px,5.6vw,68px);line-height:1.06;letter-spacing:-1px;
+    margin:14px 0 0;
+    background:linear-gradient(100deg,#fff 20%,#ffc8b8 55%,#ffd166 92%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .rx-hero h1 em{font-style:normal;color:var(--rx-accent);-webkit-text-fill-color:var(--rx-accent)}
+  .rx-hero-lead{color:#c3cadd;font-size:15.5px;margin-top:20px;max-width:560px}
+  .rx-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .rx-hero-stats{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:32px;
+    border-top:1px solid var(--rx-line);padding-top:22px;
+  }
+  .rx-hero-stats b{display:block;font-size:clamp(20px,2.4vw,28px);color:var(--rx-accent-2);letter-spacing:.5px}
+  .rx-hero-stats span{font-size:12px;color:var(--rx-muted-2);letter-spacing:.06em}
+  .rx-hero-visual{position:relative}
+  .rx-hero-visual img{
+    width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px;
+    border:1px solid var(--rx-line-strong);
+    box-shadow:0 32px 70px -40px rgba(0,0,0,.95);
+  }
+  .rx-hero-badge{
+    position:absolute;left:-14px;bottom:26px;
+    background:rgba(18,22,32,.92);border:1px solid var(--rx-line-strong);
+    border-radius:14px;padding:12px 16px;backdrop-filter:blur(10px);
+    box-shadow:0 20px 40px -24px #000;
+  }
+  .rx-hero-badge b{display:block;font-size:20px;color:var(--rx-neon)}
+  .rx-hero-badge span{font-size:11.5px;color:var(--rx-muted)}
+
+  /* ---------- 企业简介 ---------- */
+  .rx-intro{
+    display:grid;grid-template-columns:minmax(0,3fr) minmax(0,7fr);gap:34px;
+    background:linear-gradient(160deg,rgba(33,39,57,.9),rgba(21,25,37,.9));
+    border:1px solid var(--rx-line);border-radius:22px;padding:34px;
+  }
+  .rx-intro h2{font-size:clamp(20px,2.2vw,26px)}
+  .rx-intro-body p{color:#c3cadd;font-size:14.8px}
+  .rx-intro-body p+p{margin-top:14px}
+  .rx-intro-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+
+  /* ---------- 视频内容 ---------- */
+  .rx-focus-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:26px}
+  .rx-focus-main{
+    background:var(--rx-panel);border:1px solid var(--rx-line);border-radius:20px;overflow:hidden;
+    transition:transform .22s,border-color .22s;
+  }
+  .rx-focus-main:hover{transform:translateY(-4px);border-color:rgba(255,92,57,.4)}
+  .rx-focus-main img{width:100%;aspect-ratio:16/9;object-fit:cover}
+  .rx-focus-body{padding:22px}
+  .rx-focus-body h3{font-size:clamp(18px,2vw,23px);margin-bottom:10px}
+  .rx-focus-body p{color:var(--rx-muted);font-size:14.2px}
+  .rx-focus-side{display:grid;gap:14px;align-content:start}
+  .rx-mini-card{
+    display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;align-items:center;
+    background:var(--rx-panel);border:1px solid var(--rx-line);border-radius:14px;padding:12px;
+    transition:border-color .2s,transform .2s;
+  }
+  .rx-mini-card:hover{border-color:rgba(60,230,196,.4);transform:translateY(-2px)}
+  .rx-mini-card img{width:96px;height:66px;object-fit:cover;border-radius:9px}
+  .rx-mini-card h4{font-size:14px;line-height:1.45}
+  .rx-mini-card small{display:block;font-size:11.5px;color:var(--rx-muted-2);margin-top:5px}
+
+  .rx-video-list{display:grid;gap:12px;margin-top:26px}
+  .rx-video-row{
+    display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;
+    padding:18px 20px;border:1px solid var(--rx-line);border-radius:14px;
+    background:linear-gradient(120deg,rgba(27,32,48,.85),rgba(21,25,37,.6));
+    transition:border-color .2s,background .2s;
+  }
+  .rx-video-row:hover{border-color:var(--rx-line-strong);background:rgba(33,39,57,.92)}
+  .rx-video-row h4{font-size:15.5px;margin-bottom:6px}
+  .rx-video-row p{color:var(--rx-muted);font-size:13.2px}
+  .rx-video-meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;font-size:12px;color:var(--rx-muted-2)}
+  .rx-video-ops{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+  .rx-icon-btn{
+    border:1px solid var(--rx-line-strong);background:transparent;color:var(--rx-muted);
+    border-radius:9px;padding:6px 11px;font-size:12.5px;transition:all .18s;white-space:nowrap;
+  }
+  .rx-icon-btn:hover{color:#fff;border-color:var(--rx-accent);background:rgba(255,92,57,.1)}
+  .rx-icon-btn.is-on{color:var(--rx-accent-2);border-color:rgba(255,209,102,.55);background:rgba(255,209,102,.1)}
+  .rx-icon-btn.is-liked{color:var(--rx-accent);border-color:rgba(255,92,57,.6);background:rgba(255,92,57,.13)}
+
+  /* ---------- 专题 ---------- */
+  .rx-special-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px}
+  .rx-special-card{
+    background:var(--rx-panel);border:1px solid var(--rx-line);border-radius:18px;padding:22px;
+    display:flex;flex-direction:column;gap:12px;transition:transform .2s,border-color .2s;
+  }
+  .rx-special-card:hover{transform:translateY(-3px);border-color:rgba(255,209,102,.35)}
+  .rx-special-card h3{font-size:17px}
+  .rx-special-card p{color:var(--rx-muted);font-size:13.5px}
+  .rx-special-card ul{display:grid;gap:8px;margin-top:4px}
+  .rx-special-card li{
+    font-size:13px;color:#bcc5d9;padding-left:16px;position:relative;
+  }
+  .rx-special-card li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--rx-accent)}
+  .rx-status{font-size:11.5px;color:var(--rx-neon);border:1px solid rgba(60,230,196,.35);border-radius:999px;padding:2px 10px;align-self:flex-start}
+
+  /* ---------- 解析长文 ---------- */
+  .rx-analysis{
+    background:linear-gradient(180deg,rgba(27,32,48,.75),rgba(15,17,23,.4));
+    border:1px solid var(--rx-line);border-radius:22px;padding:34px;
+  }
+  .rx-analysis h2{font-size:clamp(22px,2.6vw,30px);margin-bottom:8px}
+  .rx-analysis h3{font-size:17px;margin:26px 0 10px;color:var(--rx-accent-2)}
+  .rx-analysis p{color:#c3cadd;font-size:14.6px;margin-bottom:12px}
+  .rx-analysis p b{color:#fff}
+  .rx-analysis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px;margin:20px 0 6px}
+  .rx-analysis-stat{background:rgba(60,230,196,.07);border:1px solid rgba(60,230,196,.2);border-radius:12px;padding:14px}
+  .rx-analysis-stat b{display:block;font-size:20px;color:var(--rx-neon)}
+  .rx-analysis-stat span{font-size:12px;color:var(--rx-muted)}
+
+  /* ---------- 作者矩阵 ---------- */
+  .rx-author-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:18px}
+  .rx-author-card{
+    background:var(--rx-panel);border:1px solid var(--rx-line);border-radius:18px;padding:20px;
+    display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s;
+  }
+  .rx-author-card:hover{transform:translateY(-3px);border-color:rgba(60,230,196,.35)}
+  .rx-author-top{display:flex;align-items:center;gap:12px}
+  .rx-avatar{
+    width:48px;height:48px;border-radius:50%;flex:none;display:grid;place-items:center;
+    font-weight:800;font-size:17px;color:#0f1117;
+  }
+  .rx-author-top b{display:block;font-size:15.5px}
+  .rx-author-top span{font-size:12px;color:var(--rx-muted-2)}
+  .rx-author-card p{font-size:13.3px;color:var(--rx-muted)}
+  .rx-author-nums{display:flex;gap:16px;font-size:12px;color:var(--rx-muted-2);border-top:1px solid var(--rx-line);padding-top:10px;margin-top:auto}
+  .rx-author-nums b{color:var(--rx-accent-2);font-weight:700}
+  .rx-link-btn{background:none;border:none;color:var(--rx-neon);font-size:12.5px;padding:0;text-align:left}
+  .rx-link-btn:hover{text-decoration:underline}
+
+  /* ---------- 榜单 / 评价 ---------- */
+  .rx-board-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:26px}
+  .rx-board{
+    background:var(--rx-panel);border:1px solid var(--rx-line);border-radius:18px;padding:22px;
+  }
+  .rx-board h3{font-size:16px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .rx-board h3 i{font-style:normal;color:var(--rx-accent)}
+  .rx-board ol{display:grid;gap:10px;counter-reset:rxrank}
+  .rx-board li{
+    display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:10px;align-items:center;
+    font-size:13.6px;color:#c8d0e2;padding-bottom:10px;border-bottom:1px dashed var(--rx-line);
+  }
+  .rx-board li:last-child{border-bottom:none;padding-bottom:0}
+  .rx-board li::before{
+    counter-increment:rxrank;content:counter(rxrank);
+    font-size:12px;font-weight:800;color:var(--rx-muted-2);
+    width:22px;height:22px;border-radius:6px;display:grid;place-items:center;
+    background:rgba(255,255,255,.05);
+  }
+  .rx-board li:nth-child(1)::before{background:var(--rx-accent);color:#170c08}
+  .rx-board li:nth-child(2)::before{background:var(--rx-accent-2);color:#1c1608}
+  .rx-board li:nth-child(3)::before{background:var(--rx-neon);color:#06201b}
+  .rx-board li span{color:var(--rx-muted-2);font-size:12px;white-space:nowrap}
+
+  .rx-comment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin-top:22px}
+  .rx-comment{
+    background:var(--rx-bg-soft);border:1px solid var(--rx-line);border-left:3px solid rgba(255,209,102,.55);
+    border-radius:12px;padding:16px 18px;
+  }
+  .rx-comment:nth-child(2n){border-left-color:rgba(60,230,196,.55)}
+  .rx-comment:nth-child(3n){border-left-color:rgba(255,92,57,.55)}
+  .rx-comment p{font-size:13.4px;color:#c8d0e2}
+  .rx-comment footer{margin-top:10px;font-size:12px;color:var(--rx-muted-2);display:flex;justify-content:space-between;gap:10px}
+  .rx-comment footer b{color:var(--rx-accent-2);font-weight:600}
+
+  /* ---------- 动态 / 合作 / FAQ / 投稿 ---------- */
+  .rx-split-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:26px}
+  .rx-news{display:grid;gap:12px}
+  .rx-news-item{
+    display:grid;grid-template-columns:88px minmax(0,1fr);gap:14px;align-items:start;
+    background:var(--rx-panel);border:1px solid var(--rx-line);border-radius:12px;padding:14px 16px;
+  }
+  .rx-news-item time{font-size:12px;color:var(--rx-neon);font-weight:700;letter-spacing:.03em}
+  .rx-news-item b{display:block;font-size:14px;margin-bottom:4px}
+  .rx-news-item p{font-size:12.8px;color:var(--rx-muted)}
+  .rx-partners{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:12px}
+  .rx-partner{
+    border:1px dashed var(--rx-line-strong);border-radius:12px;padding:16px 12px;text-align:center;
+    font-size:13px;color:#c8d0e2;background:rgba(255,255,255,.02);transition:all .2s;
+  }
+  .rx-partner:hover{border-style:solid;border-color:var(--rx-accent);color:#fff}
+  .rx-faq{display:grid;gap:10px;margin-top:20px}
+  .rx-faq details{
+    background:var(--rx-panel);border:1px solid var(--rx-line);border-radius:12px;padding:0 18px;
+    transition:border-color .2s;
+  }
+  .rx-faq details[open]{border-color:rgba(255,209,102,.4)}
+  .rx-faq summary{
+    cursor:pointer;list-style:none;padding:15px 0;font-size:14.5px;font-weight:600;
+    display:flex;justify-content:space-between;gap:12px;align-items:center;
+  }
+  .rx-faq summary::-webkit-details-marker{display:none}
+  .rx-faq summary::after{content:"+";color:var(--rx-accent);font-size:19px;font-weight:400;line-height:1}
+  .rx-faq details[open] summary::after{content:"–"}
+  .rx-faq details p{padding:0 0 16px;color:var(--rx-muted);font-size:13.6px}
+
+  .rx-submit{
+    display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;
+    background:linear-gradient(120deg,rgba(255,92,57,.16),rgba(60,230,196,.1));
+    border:1px solid rgba(255,209,102,.28);border-radius:20px;padding:30px;
+  }
+  .rx-submit h2{font-size:clamp(20px,2.4vw,27px)}
+  .rx-submit p{color:#d3d9e8;font-size:14px;margin-top:8px;max-width:600px}
+
+  /* ---------- 页脚 ---------- */
+  .rx-footer{border-top:1px solid var(--rx-line);background:var(--rx-bg-soft);padding:44px 0 26px;margin-top:20px}
+  .rx-footer-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:28px}
+  .rx-footer-brand p{font-size:13px;color:var(--rx-muted);margin-top:12px;max-width:320px}
+  .rx-footer h4{font-size:13.5px;color:#fff;margin-bottom:12px;letter-spacing:.05em}
+  .rx-footer li{font-size:13px;color:var(--rx-muted);padding:4px 0}
+  .rx-footer li a:hover{color:var(--rx-accent-2)}
+  .rx-footer-bottom{
+    margin-top:30px;padding-top:18px;border-top:1px solid var(--rx-line);
+    display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
+    font-size:12.4px;color:var(--rx-muted-2);
+  }
+
+  /* ---------- Toast & 返回顶部 ---------- */
+  .rx-toast{
+    position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);
+    background:rgba(20,24,34,.96);color:#fff;border:1px solid var(--rx-line-strong);
+    border-radius:11px;padding:11px 20px;font-size:13.5px;z-index:200;
+    opacity:0;pointer-events:none;transition:opacity .24s,transform .24s;
+    box-shadow:0 20px 44px -20px #000;max-width:86vw;text-align:center;
+  }
+  .rx-toast.is-show{opacity:1;transform:translate(-50%,0)}
+  .rx-backtop{
+    position:fixed;right:22px;bottom:26px;z-index:120;
+    width:44px;height:44px;border-radius:50%;
+    background:var(--rx-panel);border:1px solid var(--rx-line-strong);color:var(--rx-accent-2);
+    font-size:18px;display:grid;place-items:center;opacity:0;pointer-events:none;
+    transition:opacity .24s,transform .24s;
+  }
+  .rx-backtop.is-show{opacity:1;pointer-events:auto}
+  .rx-backtop:hover{transform:translateY(-3px);border-color:var(--rx-accent)}
+
+  /* ---------- 模态 ---------- */
+  .rx-modal{
+    position:fixed;inset:0;z-index:180;display:none;place-items:center;padding:20px;
+    background:rgba(6,8,13,.78);backdrop-filter:blur(6px);
+  }
+  .rx-modal.is-open{display:grid}
+  .rx-modal-card{
+    width:100%;max-width:520px;background:var(--rx-panel);border:1px solid var(--rx-line-strong);
+    border-radius:18px;padding:24px;max-height:86vh;overflow:auto;
+    box-shadow:0 40px 80px -40px #000;
+  }
+  .rx-modal-card h3{font-size:19px;margin-bottom:12px}
+  .rx-modal-card p{font-size:13.6px;color:var(--rx-muted);margin-bottom:10px}
+  .rx-modal-card label{display:block;font-size:12.5px;color:var(--rx-muted-2);margin:12px 0 6px}
+  .rx-modal-card input,.rx-modal-card textarea,.rx-modal-card select{
+    width:100%;background:var(--rx-bg-soft);border:1px solid var(--rx-line-strong);
+    color:var(--rx-text);border-radius:9px;padding:10px 12px;font-size:13.5px;font-family:inherit;outline:none;
+  }
+  .rx-modal-card input:focus,.rx-modal-card textarea:focus,.rx-modal-card select:focus{border-color:var(--rx-accent)}
+  .rx-modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
+  .rx-share-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+
+  @media (max-width:980px){
+    .rx-hero-grid{grid-template-columns:1fr;gap:26px}
+    .rx-hero-visual img{aspect-ratio:16/10}
+    .rx-intro{grid-template-columns:1fr;padding:26px}
+    .rx-focus-grid,.rx-board-grid,.rx-split-grid,.rx-submit{grid-template-columns:1fr}
+    .rx-footer-grid{grid-template-columns:1fr 1fr}
+    .rx-nav{display:none}
+    .rx-nav-toggle{display:inline-flex}
+    .rx-search input{width:150px}
+    .rx-search input:focus{width:170px}
+  }
+  @media (max-width:720px){
+    :root{--rx-sticky:120px}
+    .rx-header-inner{flex-wrap:wrap;gap:12px}
+    .rx-header-tools{width:100%;margin-left:0;justify-content:space-between}
+    .rx-search{flex:1}
+    .rx-search input,.rx-search input:focus{width:100%}
+    .rx-hero{padding:36px 0 12px}
+    .rx-hero-stats{grid-template-columns:1fr 1fr}
+    .rx-section{padding:44px 0}
+    .rx-analysis{padding:24px}
+    .rx-video-row{grid-template-columns:1fr}
+    .rx-video-ops{justify-content:flex-start}
+    .rx-footer-grid{grid-template-columns:1fr}
+    .rx-topbar-inner{font-size:12px}
+    .rx-topbar-label{display:none}
+  }
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 公告条 -->
+<div class="rx-topbar" role="region" aria-label="站内公告">
+  <div class="rx-topbar-inner">
+    <span class="rx-topbar-label">官方发布</span>
+    <div class="rx-topbar-track" id="rxTopbarTrack">
+      <span><b>新增</b>《R星吃瓜·年度热点长片》11月24日上线，全片高清正版首播</span>
+      <span><b>报名</b>「玩家镜头挑战赛」第 6 期开放投稿，截止 12 月 8 日</span>
+      <span><b>更新</b>创作者激励计划 2.0 规则发布，新增社区投票通道</span>
+      <span><b>上新</b>城市玩家探访企划第 3 季收录 12 座城市，支持下载收藏</span>
+      <span><b>新增</b>《R星吃瓜·年度热点长片》11月24日上线，全片高清正版首播</span>
+      <span><b>报名</b>「玩家镜头挑战赛」第 6 期开放投稿，截止 12 月 8 日</span>
+      <span><b>更新</b>创作者激励计划 2.0 规则发布，新增社区投票通道</span>
+      <span><b>上新</b>城市玩家探访企划第 3 季收录 12 座城市，支持下载收藏</span>
+    </div>
+  </div>
+</div>
+
+<!-- 页头 -->
+<header class="rx-header">
+  <div class="rx-header-inner">
+    <a class="rx-brand" href="#rxTop" aria-label="R星吃瓜官方网站首页">
+      <span class="rx-brand-mark" aria-hidden="true">R</span>
+      <span class="rx-brand-text"><b>R星吃瓜</b><small>GAME CULTURE STUDIO</small></span>
+    </a>
+    <nav class="rx-nav" aria-label="主导航">
+      <a href="#rxFocus">热点现场</a>
+      <a href="#rxSpecial">专题企划</a>
+      <a href="#rxAnalysis">深度解析</a>
+      <a href="#rxAuthors">创作者</a>
+      <a href="#rxBoard">榜单口碑</a>
+      <a href="#rxNews">企业动态</a>
+      <a href="#rxFaq">帮助</a>
+    </nav>
+    <div class="rx-header-tools">
+      <div class="rx-search">
+        <input type="search" id="rxSearchInput" placeholder="搜索视频 / 作者 / 专题" aria-label="站内搜索">
+      </div>
+      <button class="rx-btn rx-btn--primary" type="button" data-rx-open="submit">投稿上传</button>
+      <button class="rx-nav-toggle" type="button" id="rxNavToggle" aria-expanded="false" aria-controls="rxMobileNav" aria-label="展开导航">☰</button>
+    </div>
+  </div>
+  <div class="rx-mobile-nav" id="rxMobileNav">
+    <ul>
+      <li><a href="#rxTop">首页品牌</a></li>
+      <li><a href="#rxFocus">热点现场</a></li>
+      <li><a href="#rxSpecial">专题企划</a></li>
+      <li><a href="#rxAnalysis">深度解析</a></li>
+      <li><a href="#rxAuthors">创作者矩阵</a></li>
+      <li><a href="#rxBoard">榜单与评价</a></li>
+      <li><a href="#rxNews">企业动态与伙伴</a></li>
+      <li><a href="#rxFaq">常见问题</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="rxTop">
+
+  <!-- 首屏 -->
+  <section class="rx-hero" aria-labelledby="rxHeroTitle">
+    <div class="rx-container">
+      <div class="rx-hero-grid">
+        <div>
+          <span class="rx-eyebrow">官方网站 · 游戏文化影像社区</span>
+          <h1 id="rxHeroTitle">R星吃瓜</h1>
+          <p class="rx-hero-lead">一家持续运营的游戏文化与玩家社区视频品牌。我们以原创、高清、专业的影像观察行业热点，记录玩家真实生活，为创作者与企业搭建值得信赖的内容生态。</p>
+          <div class="rx-hero-actions">
+            <a class="rx-btn rx-btn--primary" href="#rxFocus">观看本期热点</a>
+            <a class="rx-btn rx-btn--ghost" href="#rxAuthors">认识创作者</a>
+            <button class="rx-btn" type="button" data-rx-open="share">分享本站</button>
+          </div>
+          <div class="rx-hero-stats">
+            <div><b>4,200+</b><span>累计原创视频</span></div>
+            <div><b>186 万</b><span>社区注册用户</span></div>
+            <div><b>7 年</b><span>持续运营时间</span></div>
+          </div>
+        </div>
+        <div class="rx-hero-visual">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 1000'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23161a26'/%3E%3Cstop offset='1' stop-color='%232a1a16'/%3E%3C/linearGradient%3E%3ClinearGradient id='neon' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23ff5c39'/%3E%3Cstop offset='1' stop-color='%23ffd166'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='1000' fill='url(%23bg)'/%3E%3Cg opacity='.18' stroke='%233ce6c4' stroke-width='1'%3E%3Cpath d='M0 200h800M0 340h800M0 480h800M0 620h800M0 760h800M0 900h800'/%3E%3Cpath d='M140 0v1000M300 0v1000M460 0v1000M620 0v1000'/%3E%3C/g%3E%3Ccircle cx='560' cy='300' r='170' fill='none' stroke='%23ff5c39' stroke-width='10' opacity='.8'/%3E%3Ccircle cx='560' cy='300' r='120' fill='none' stroke='%23ffd166' stroke-width='3' opacity='.7'/%3E%3Cpath d='M520 250l110 50-110 50z' fill='url(%23neon)'/%3E%3Crect x='80' y='600' width='480' height='16' rx='8' fill='%23ff5c39' opacity='.85'/%3E%3Crect x='80' y='640' width='360' height='16' rx='8' fill='%23ffd166' opacity='.6'/%3E%3Crect x='80' y='680' width='420' height='16' rx='8' fill='%233ce6c4' opacity='.45'/%3E%3Ctext x='80' y='840' fill='%23eef1f7' font-family='sans-serif' font-size='54' font-weight='bold'%3ER%3Ctspan fill='%23ff5c39'%3E★%3C/tspan%3E%3C/text%3E%3Ctext x='80' y='890' fill='%239aa4bc' font-family='sans-serif' font-size='24' letter-spacing='6'%3EHOT TAKES%3C/text%3E%3C/svg%3E" alt="R星吃瓜首屏主视觉：霓虹网格上的播放标识与热点长片符号" width="800" height="1000">
+          <div class="rx-hero-badge">
+            <b>本周 12 期</b>
+            <span>热点观察 · 高清正版</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 企业简介 -->
+  <section class="rx-section rx-section--tight" aria-labelledby="rxAboutTitle">
+    <div class="rx-container">
+      <div class="rx-intro">
+        <div>
+          <span class="rx-eyebrow">关于品牌</span>
+          <h2 id="rxAboutTitle">R星吃瓜官方网站<br>把热点做成可回看的内容资产</h2>
+          <div class="rx-intro-meta">
+            <span class="rx-tag rx-tag--cyan">原创内容</span>
+            <span class="rx-tag rx-tag--gold">社区共创</span>
+            <span class="rx-tag">品质口碑</span>
+          </div>
+        </div>
+        <div class="rx-intro-body">
+          <p>R星吃瓜创立于 2019 年，是一家聚焦游戏文化、玩家社区与行业观察的视频内容企业。作为深耕垂直领域的品牌，我们坚持原创、正版与高清的制作标准，以专题企划、深度解析、创作者访谈和社区现场四条内容线并行运营，累计上线原创视频超过四千二百条，覆盖热点评论、城市玩家探访、创作幕后与新人扶持等多元题材。</p>
+          <p>官网以“真实、温暖、有力量”为内容底色，鼓励每一位创作者上传自己的观察。我们持续举办镜头挑战赛、社区投票与投稿征集，让社区成为内容的共同作者。从选题会到成片审校，从弹幕反馈到线下放映，R星吃瓜希望成为用户首选的游戏影像社区，也愿意成为合作品牌值得信赖的长期伙伴。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热点现场 -->
+  <section class="rx-section" id="rxFocus" aria-labelledby="rxFocusTitle">
+    <div class="rx-container">
+      <div class="rx-section-head">
+        <div>
+          <span class="rx-eyebrow">Hot Takes</span>
+          <h2 id="rxFocusTitle">R星吃瓜热点现场：焦点影像与本周视频条目</h2>
+          <p class="rx-section-sub">每一个热点都值得被完整记录。我们优先呈现有信息量、有现场感、有创作者署名的原创内容。</p>
+        </div>
+        <button class="rx-btn rx-btn--ghost" type="button" data-rx-open="feedback">反馈选题</button>
+      </div>
+
+      <div class="rx-focus-grid">
+        <article class="rx-focus-main">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 960 540'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230c1a20'/%3E%3Cstop offset='1' stop-color='%23211a2e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='960' height='540' fill='url(%23g1)'/%3E%3Cg stroke='%233ce6c4' opacity='.45' stroke-width='2' fill='none'%3E%3Ccircle cx='700' cy='240' r='120'/%3E%3Ccircle cx='700' cy='240' r='88'/%3E%3Ccircle cx='700' cy='240' r='56'/%3E%3C/g%3E%3Cpath d='M680 210l56 30-56 30z' fill='%23ff5c39'/%3E%3Crect x='70' y='90' width='330' height='10' rx='5' fill='%23ffd166' opacity='.85'/%3E%3Crect x='70' y='120' width='250' height='10' rx='5' fill='%23ff5c39' opacity='.6'/%3E%3Crect x='70' y='150' width='300' height='10' rx='5' fill='%23ffffff' opacity='.22'/%3E%3Cg fill='%23eef1f7' font-family='sans-serif'%3E%3Ctext x='70' y='300' font-size='44' font-weight='bold'%3E%E7%83%AD%E7%82%B9%E9%95%BF%E7%89%87%3C/text%3E%3Ctext x='70' y='345' font-size='20' fill='%239aa4bc'%3E%E5%85%A8%E7%A8%8B%E7%8E%B0%E5%9C%BA%20%C2%B7%20%E9%AB%98%E6%B8%85%E6%AD%A3%E7%89%88%3C/text%3E%3C/g%3E%3Crect x='70' y='390' width='150' height='38' rx='19' fill='%23ff5c39'/%3E%3Ctext x='96' y='415' fill='%231b0d08' font-family='sans-serif' font-size='16' font-weight='bold'%3E%E7%AB%8B%E5%8D%B3%E8%A7%82%E7%9C%8B%3C/text%3E%3C/svg%3E" alt="R星吃瓜年度热点长片封面：雷达圆环与播放按钮构成的现场感画面" width="960" height="540">
+          <div class="rx-focus-body">
+            <div>
+              <span class="rx-tag">焦点内容</span>
+              <span class="rx-tag rx-tag--cyan">深度解析</span>
+            </div>
+            <h3>年度热点长片：那些被刷屏的 72 小时，现场到底发生了什么</h3>
+            <p>摄制组用三周时间回访了六座城市、十四位当事人与二十余位社区玩家。长片以时间线方式还原热点发酵过程，对照公开信息与创作者口述，不站队、不省略，把“吃瓜”还原成可核验的事实与可讨论的观点。</p>
+            <div class="rx-video-meta">
+              <span>作者：吃瓜档案室</span><span>播放 68.4 万</span><span>点赞 3.1 万</span><span>收藏 1.7 万</span>
+            </div>
+            <div class="rx-video-ops" style="justify-content:flex-start;margin-top:14px">
+              <button class="rx-icon-btn" type="button" data-rx-like="1420">◉ 有用 <span>1,420</span></button>
+              <button class="rx-icon-btn" type="button" data-rx-save>☆ 收藏</button>
+              <button class="rx-icon-btn" type="button" data-rx-open="comment">写评论</button>
+              <button class="rx-icon-btn" type="button" data-rx-open="share">分享</button>
+            </div>
+          </div>
+        </article>
+
+        <div class="rx-focus-side">
+          <article class="rx-mini-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 288 198'%3E%3Crect width='288' height='198' fill='%23141b17'/%3E%3Cpath d='M0 150l70-46 52 32 58-58 48 40 60-44v78H0z' fill='%233ce6c4' opacity='.5'/%3E%3Ccircle cx='216' cy='56' r='26' fill='%23ffd166'/%3E%3Crect x='22' y='26' width='100' height='8' rx='4' fill='%23eef1f7' opacity='.8'/%3E%3Crect x='22' y='44' width='64' height='8' rx='4' fill='%23ff5c39'/%3E%3C/svg%3E" alt="城市玩家地图缩略图：山脊线与暖黄圆日构成的探访路线" width="288" height="198">
+            <div>
+              <h4>城市玩家探访 03：夜市、网吧与凌晨四点的便利店</h4>
+              <small>城市探索 · 播放 24.6 万</small>
+            </div>
+          </article>
+          <article class="rx-mini-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 288 198'%3E%3Crect width='288' height='198' fill='%231b1520'/%3E%3Cg fill='none' stroke='%23ff5c39' stroke-width='3'%3E%3Crect x='28' y='38' width='96' height='70' rx='8'/%3E%3Crect x='140' y='38' width='120' height='40' rx='8'/%3E%3Crect x='140' y='92' width='120' height='16' rx='8'/%3E%3Crect x='28' y='128' width='232' height='36' rx='8'/%3E%3C/g%3E%3Ccircle cx='76' cy='73' r='16' fill='%23ffd166'/%3E%3C/svg%3E" alt="剪辑工程界面插画缩略图：时间线与素材轨道的抽象表现" width="288" height="198">
+            <div>
+              <h4>创作幕后：一条 8 分钟热点视频的 47 版脚本</h4>
+              <small>创作幕后 · 播放 19.2 万</small>
+            </div>
+          </article>
+          <article class="rx-mini-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 288 198'%3E%3Crect width='288' height='198' fill='%23121d24'/%3E%3Cg stroke='%233ce6c4' stroke-width='2' opacity='.6'%3E%3Cpath d='M0 100h288M0 140h288M60 0v198M160 0v198M240 0v198'/%3E%3C/g%3E%3Crect x='34' y='40' width='84' height='84' rx='10' fill='%23ff5c39' opacity='.8'/%3E%3Crect x='140' y='70' width='110' height='54' rx='10' fill='%23ffd166' opacity='.75'/%3E%3C/svg%3E" alt="数据面板与色块构成的社区观察插画缩略图" width="288" height="198">
+            <div>
+              <h4>社区观察：热点退潮之后，讨论还留下了什么</h4>
+              <small>行业观察 · 播放 15.8 万</small>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="rx-video-list" id="rxVideoList">
+        <article class="rx-video-row">
+          <div>
+            <h4>新版本上线首日，玩家最在意的三件事</h4>
+            <p>我们把社区里两千多条留言做了词频整理，挑出讨论最集中的三个问题，逐条对照官方说明与实际体验。</p>
+            <div class="rx-video-meta"><span>作者：版本观测站</span><span>标签：深度测评</span><span>播放 31.2 万</span><span>点赞 1.2 万</span><span>收藏 6,840</span></div>
+          </div>
+          <div class="rx-video-ops">
+            <button class="rx-icon-btn" type="button" data-rx-like="880">◉ 有用 <span>880</span></button>
+            <button class="rx-icon-btn" type="button" data-rx-save>☆ 收藏</button>
+            <button class="rx-icon-btn" type="button" data-rx-copy>复制链接</button>
+          </div>
+        </article>
+        <article class="rx-video-row">
+          <div>
+            <h4>新手开荒别踩坑：一份写给小白的 12 步行动清单</h4>
+            <p>从账号设置到资源分配，从社区礼仪到避雷常识，全部用可执行的步骤说明，配套字幕与章节跳转。</p>
+            <div class="rx-video-meta"><span>作者：开荒笔记</span><span>标签：教程干货</span><span>播放 27.9 万</span><span>点赞 9,460</span><span>收藏 8,120</span></div>
+          </div>
+          <div class="rx-video-ops">
+            <button class="rx-icon-btn" type="button" data-rx-like="764">◉ 有用 <span>764</span></button>
+            <button class="rx-icon-btn" type="button" data-rx-save>☆ 收藏</button>
+            <button class="rx-icon-btn" type="button" data-rx-copy>复制链接</button>
+          </div>
+        </article>
+        <article class="rx-video-row">
+          <div>
+            <h4>对话三维美术：一张地图要经历多少次推倒重来</h4>
+            <p>访谈摘录与工作台实拍交叉剪辑，讲清一个场景从概念草图到最终上线的完整链路，以及反复返工的真实原因。</p>
+            <div class="rx-video-meta"><span>作者：幕后访谈组</span><span>标签：人物访谈</span><span>播放 18.4 万</span><span>点赞 7,320</span><span>收藏 4,905</span></div>
+          </div>
+          <div class="rx-video-ops">
+            <button class="rx-icon-btn" type="button" data-rx-like="512">◉ 有用 <span>512</span></button>
+            <button class="rx-icon-btn" type="button" data-rx-save>☆ 收藏</button>
+            <button class="rx-icon-btn" type="button" data-rx-copy>复制链接</button>
+          </div>
+        </article>
+        <article class="rx-video-row">
+          <div>
+            <h4>玩家镜头挑战赛精选：这 10 段二创为什么被投票选中</h4>
+            <p>第 5 期挑战赛的入围作品混剪与评委点评，附完整评分维度说明，方便下一期投稿的朋友参考。</p>
+            <div class="rx-video-meta"><span>作者：赛事编辑部</span><span>标签：创意挑战</span><span>播放 22.6 万</span><span>点赞 1.05 万</span><span>收藏 5,610</span></div>
+          </div>
+          <div class="rx-video-ops">
+            <button class="rx-icon-btn" type="button" data-rx-like="660">◉ 有用 <span>660</span></button>
+            <button class="rx-icon-btn" type="button" data-rx-save>☆ 收藏</button>
+            <button class="rx-icon-btn" type="button" data-rx-copy>复制链接</button>
+          </div>
+        </article>
+        <article class="rx-video-row">
+          <div>
+            <h4>深夜连线：三个城市玩家聊各自的“治愈时刻”</h4>
+            <p>一档轻量的情感故事节目，没有脚本，只有真实的语音连线与生活片段，适合在通勤路上安静听完。</p>
+            <div class="rx-video-meta"><span>作者：夜航电台</span><span>标签：情感故事</span><span>播放 14.7 万</span><span>点赞 6,180</span><span>收藏 3,940</span></div>
+          </div>
+          <div class="rx-video-ops">
+            <button class="rx-icon-btn" type="button" data-rx-like="430">◉ 有用 <span>430</span></button>
+            <button class="rx-icon-btn" type="button" data-rx-save>☆ 收藏</button>
+            <button class="rx-icon-btn" type="button" data-rx-copy>复制链接</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 专题企划 -->
+  <section class="rx-section" id="rxSpecial" aria-labelledby="rxSpecialTitle">
+    <div class="rx-container">
+      <div class="rx-section-head">
+        <div>
+          <span class="rx-eyebrow">Special Projects</span>
+          <h2 id="rxSpecialTitle">专题企划：R星吃瓜的长期内容工程</h2>
+          <p class="rx-section-sub">专题不是合集，而是一条能长期追踪的叙事线。每个企划都标注更新状态与内容条目。</p>
+        </div>
+      </div>
+      <div class="rx-special-grid">
+        <article class="rx-special-card">
+          <span class="rx-status">更新中 · 第 18 期</span>
+          <h3>《热点之后》人物回访计划</h3>
+          <p>热点退潮后，当事人过得怎么样？我们坚持做半年、一年后的回访，让讨论不止停在情绪最高点。</p>
+          <ul>
+            <li>回访 01：那条被转发的视频，作者后来换了工作</li>
+            <li>回访 02：社区管理员的一天与他的三百条删除记录</li>
+            <li>回访 03：争议之后，他们把评论区改成了问答区</li>
+          </ul>
+        </article>
+        <article class="rx-special-card">
+          <span class="rx-status">更新中 · 第 3 季</span>
+          <h3>《城市玩家》在地文化探访</h3>
+          <p>走访 12 座城市，从网吧、桌游店到深夜便利店，记录玩家真实的生活半径与城市气质。</p>
+          <ul>
+            <li>成都篇：下午三点的老茶馆与一局桌游</li>
+            <li>厦门篇：海风、旧唱片店与一个独立工作室</li>
+            <li>西安篇：城墙下的新玩家聚会现场</li>
+          </ul>
+        </article>
+        <article class="rx-special-card">
+          <span class="rx-status">报名开放 · 12 月 8 日截止</span>
+          <h3>《玩家镜头挑战赛》第 6 期</h3>
+          <p>以“我的一次选择”为题，征集 1 到 3 分钟的原创短片。获奖作品将获得官方联合展映与创作基金。</p>
+          <ul>
+            <li>命题公布：三个方向任选其一，鼓励真实表达</li>
+            <li>评审机制：专业评委 70% + 社区投票 30%</li>
+            <li>奖励说明：展映位、创作基金与作者专访</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 深度解析 -->
+  <section class="rx-section" id="rxAnalysis" aria-labelledby="rxAnalysisTitle">
+    <div class="rx-container">
+      <div class="rx-analysis">
+        <span class="rx-eyebrow">Deep Dive</span>
+        <h2 id="rxAnalysisTitle">深度解析：R星吃瓜如何理解“吃瓜”这件事</h2>
+        <p>在中文互联网语境里，“吃瓜”常被理解为围观与看热闹。但 R星吃瓜 从创立第一天起，就想把这件事做得更扎实一点：围观可以是一种注意力，也可以是一种公共讨论的起点。作为一家持续运营的游戏文化视频企业，我们更关心的是——当热点来临，谁能提供可核验的信息、可倾听的表达，以及可沉淀的内容。</p>
+
+        <h3>一、从围观到记录：内容标准的三条底线</h3>
+        <p>我们把内容的底线写进了每一期选题会的白板上。第一条是<b>可核验</b>：任何涉及具体事件的说法，都必须对应可查的时间、来源与当事人表述，剪辑中不剪掉不有利于传播的部分。第二条是<b>可对话</b>：结论不能是封闭的，我们在片尾固定留出讨论窗口，让不同意见有地方出现。第三条是<b>可回看</b>：热点会过去，但影像不会，我们希望半年后打开这条视频的人，依然能看懂当时发生了什么。这三条底线决定了我们的视频通常不是最快的，但往往是更耐看的。官方网站每期专题都会公开选题手记，说明我们为什么拍、为什么这样剪。</p>
+        <p>为了让标准落地，编辑部设置了三级审校：作者自查、主编事实核对、法务与社区规范复核。涉及个人隐私与未公开身份的素材，一律做模糊处理；涉及未成年人的内容，必须有监护人同意的书面记录。这些流程看起来琐碎，却是“值得信赖”这四个字最具体的组成部分。</p>
+
+        <h3>二、创作者生态：社区不是观众席</h3>
+        <p>R星吃瓜 的社区有一个特点：很多爆款视频的作者，最初只是评论区的普通用户。我们把创作者分成三个成长阶段——新人、进阶、签约，每个阶段都有明确的权益与义务。新人在完成实名与内容规范学习后即可上传，进阶作者可以参与选题会与联合企划，签约创作者则获得拍摄支持与分成机制。这套机制不是为了让少数人获利，而是希望让<b>更多真实的表达被看见</b>。</p>
+        <p>2025 年以来，我们新增了“投稿—筛选—孵化—展映”的完整链路。社区投票不再只是决定一个名次，而是直接影响专题的下一期选题方向。这也意味着，当你在评论区留下一句认真的建议时，它真的可能变成一期节目。<b>内容生态</b>这个词听起来很大，落到具体处，就是评论区里的一个想法被认真对待。</p>
+        <div class="rx-analysis-grid">
+          <div class="rx-analysis-stat"><b>3 级</b><span>创作者成长阶梯</span></div>
+          <div class="rx-analysis-stat"><b>120+</b><span>签约与联合创作者</span></div>
+          <div class="rx-analysis-stat"><b>76%</b><span>投稿来自社区老用户</span></div>
+        </div>
+
+        <h3>三、品牌与商业：把广告做成内容的一部分</h3>
+        <p>作为一家需要自负盈亏的企业，我们不回避商业合作。但我们坚持两件事：一是所有合作内容都必须明确标注“合作”标识，绝不伪装成普通视频；二是合作选题必须能独立成立，即使去掉品牌元素，观众也能从中获得信息。过去一年，我们与硬件、外设、城市文旅和独立工作室等多类伙伴展开合作，其中“城市玩家”系列的第三季就是与地方文旅部门联合策划的，既有城市气质的表达，也有真实玩家的生活切片。</p>
+        <p>商业合作的另一面是对创作者的尊重。我们与合作方约定，不干预创作者的正常表达，不要求删除合理的批评意见。品牌故事要有影响力，靠的不是声量，而是长期一致的行为。<b>用户至上</b>不是挂在墙上的口号，而是每一次修改分镜、每一次回应质疑时的选择。</p>
+
+        <h3>四、面向未来：把“吃瓜”变成一种耐心的能力</h3>
+        <p>我们常常提醒自己：热点只是入口，不是终点。未来一年，R星吃瓜 会把更多资源投入到长周期项目上，包括人物回访、行业观察年报和面向新人的创作营地。我们希望这个平台给人的印象，不只是“哪里热闹去哪里”，而是一个愿意花时间把事情讲清楚的地方。这也是一份<b>社会责任</b>：在一个信息被快速消费的时代，仍然有人愿意慢一点，把事实核实清楚，把情绪安放妥当，把不同意见留在同一个页面里。</p>
+        <p>如果你也认同这样的做法，欢迎在官网注册、在评论区留言、在投稿入口上传你的作品。我们相信，真实自有力量，陪伴本身就是一种长期主义。R星吃瓜 会继续在这里，把每一个值得被记住的现场，做成可以回看的视频。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作者矩阵 -->
+  <section class="rx-section" id="rxAuthors" aria-labelledby="rxAuthorsTitle">
+    <div class="rx-container">
+      <div class="rx-section-head">
+        <div>
+          <span class="rx-eyebrow">Creators</span>
+          <h2 id="rxAuthorsTitle">创作者矩阵：R星吃瓜的长期合作者</h2>
+          <p class="rx-section-sub">他们中有剪辑师、研究者、城市探访者，也有刚完成第一次投稿的新人。点击可查看作者档案。</p>
+        </div>
+      </div>
+      <div class="rx-author-grid">
+        <article class="rx-author-card">
+          <div class="rx-author-top">
+            <span class="rx-avatar" style="background:linear-gradient(140deg,#ff5c39,#ffd166)" aria-hidden="true">档</span>
+            <div><b>吃瓜档案室</b><span>深度解析 / 事实整理</span></div>
+          </div>
+          <p>前媒体编辑，擅长把碎片信息整理成时间线。坚持每个结论都要有出处，视频里常出现手写批注式的画面。做内容七年，仍然会在发布前反复看三遍片尾字幕。</p>
+          <div class="rx-author-nums"><span>作品 <b>214</b></span><span>粉丝 <b>38.6 万</b></span></div>
+          <button class="rx-link-btn" type="button" data-rx-author="吃瓜档案室：前媒体编辑，专注热点事件的公开信息整理与时间线还原，代表作《年度热点长片》系列。合作请通过官网投稿入口联系。">查看作者档案</button>
+        </article>
+        <article class="rx-author-card">
+          <div class="rx-author-top">
+            <span class="rx-avatar" style="background:linear-gradient(140deg,#3ce6c4,#5b8cff)" aria-hidden="true">版</span>
+            <div><b>版本观测站</b><span>深度测评 / 更新追踪</span></div>
+          </div>
+          <p>一个由三名玩家组成的小团队，专注版本更新后的体验对照。测评不使用空泛形容词，尽量给出可复现的步骤与截图。更新日是他们最忙也最兴奋的日子。</p>
+          <div class="rx-author-nums"><span>作品 <b>176</b></span><span>粉丝 <b>29.4 万</b></span></div>
+          <button class="rx-link-btn" type="button" data-rx-author="版本观测站：三人测评小组，专注版本更新后的体验对照，主张“可复现、可讨论”的测评方法。">查看作者档案</button>
+        </article>
+        <article class="rx-author-card">
+          <div class="rx-author-top">
+            <span class="rx-avatar" style="background:linear-gradient(140deg,#a78bfa,#f472b6)" aria-hidden="true">城</span>
+            <div><b>城市玩家计划</b><span>城市探索 / 在地文化</span></div>
+          </div>
+          <p>常驻三座城市轮换拍摄，喜欢在下午光线最好的时候走进街边小店。镜头里有夜市油烟、旧电脑键盘声，也有陌生人递来的一杯水。她说城市的故事都藏在细节里。</p>
+          <div class="rx-author-nums"><span>作品 <b>92</b></span><span>粉丝 <b>21.8 万</b></span></div>
+          <button class="rx-link-btn" type="button" data-rx-author="城市玩家计划：城市探索类创作者，走访十二座城市，以玩家的生活半径记录在地文化，强调细节与真实。">查看作者档案</button>
+        </article>
+        <article class="rx-author-card">
+          <div class="rx-author-top">
+            <span class="rx-avatar" style="background:linear-gradient(140deg,#ffd166,#fb923c)" aria-hidden="true">幕</span>
+            <div><b>幕后访谈组</b><span>人物访谈 / 创作幕后</span></div>
+          </div>
+          <p>以工作台实拍与长访谈见长，擅长让受访者在熟悉的环境里放松下来。他们相信一个行业的真实样貌，往往藏在普通岗位的日常里，而不是发布会的话术里。</p>
+          <div class="rx-author-nums"><span>作品 <b>138</b></span><span>粉丝 <b>17.2 万</b></span></div>
+          <button class="rx-link-btn" type="button" data-rx-author="幕后访谈组：以长访谈与工作台实拍为主，关注行业普通岗位的日常，让专业内容拥有可亲近的表达。">查看作者档案</button>
+        </article>
+        <article class="rx-author-card">
+          <div class="rx-author-top">
+            <span class="rx-avatar" style="background:linear-gradient(140deg,#38bdf8,#22d3ee)" aria-hidden="true">夜</span>
+            <div><b>夜航电台</b><span>情感故事 / 治愈影像</span></div>
+          </div>
+          <p>深夜更新，白天休息。节目没有脚本，只有真实语音连线与生活片段。她坚持为每一条来信回一段话，哪怕只有一句。很多人说，是她的声音陪自己度过了最难的那一年。</p>
+          <div class="rx-author-nums"><span>作品 <b>310</b></span><span>粉丝 <b>42.1 万</b></span></div>
+          <button class="rx-link-btn" type="button" data-rx-author="夜航电台：深夜情感节目创作者，以真实语音连线与生活片段记录普通人的治愈时刻，长期开放来信。">查看作者档案</button>
+        </article>
+        <article class="rx-author-card">
+          <div class="rx-author-top">
+            <span class="rx-avatar" style="background:linear-gradient(140deg,#4ade80,#14b8a6)" aria-hidden="true">新</span>
+            <div><b>开荒笔记</b><span>教程干货 / 新人友好</span></div>
+          </div>
+          <p>第 5 期挑战赛的获奖新人，原本只是习惯在评论区做笔记。她的视频结构清楚、字幕规范，被很多观众称为“可以当手册用”。现在她正在筹备自己的第一档系列教程。</p>
+          <div class="rx-author-nums"><span>作品 <b>46</b></span><span>粉丝 <b>9.3 万</b></span></div>
+          <button class="rx-link-btn" type="button" data-rx-author="开荒笔记：社区成长起来的新人创作者，专注新人友好的可执行教程，字幕与章节规范完整，适合入门观看。">查看作者档案</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 榜单与评价 -->
+  <section class="rx-section" id="rxBoard" aria-labelledby="rxBoardTitle">
+    <div class="rx-container">
+      <div class="rx-section-head">
+        <div>
+          <span class="rx-eyebrow">Ranking &amp; Voices</span>
+          <h2 id="rxBoardTitle">榜单与社区口碑：R星吃瓜的真实反馈</h2>
+          <p class="rx-section-sub">榜单以最近 30 天的播放、收藏与完播率为综合指标，每天 06:00 更新；评价为社区用户公开留言摘选。</p>
+        </div>
+      </div>
+      <div class="rx-board-grid">
+        <div class="rx-board">
+          <h3><i>◈</i>热度榜 · 本周 TOP 6</h3>
+          <ol>
+            <li>年度热点长片：那些被刷屏的 72 小时 <span>68.4 万</span></li>
+            <li>新版本上线首日，玩家最在意的三件事 <span>31.2 万</span></li>
+            <li>新手开荒别踩坑：12 步行动清单 <span>27.9 万</span></li>
+            <li>城市玩家探访 03：凌晨四点的便利店 <span>24.6 万</span></li>
+            <li>玩家镜头挑战赛精选：10 段二创 <span>22.6 万</span></li>
+            <li>创作幕后：一条视频的 47 版脚本 <span>19.2 万</span></li>
+          </ol>
+        </div>
+        <div class="rx-board">
+          <h3><i>◈</i>口碑榜 · 社区评分摘要</h3>
+          <ol>
+            <li>真实度评分 <span>9.4 / 10</span></li>
+            <li>信息密度评分 <span>9.1 / 10</span></li>
+            <li>剪辑与字幕体验 <span>8.9 / 10</span></li>
+            <li>作者互动及时性 <span>9.2 / 10</span></li>
+            <li>社区氛围与包容度 <span>8.7 / 10</span></li>
+            <li>投稿流程清晰度 <span>8.8 / 10</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="rx-comment-grid">
+        <article class="rx-comment">
+          <p>“把前因后果讲清楚这件事，说起来简单，真做起来太难了。这期长片我看了两遍，第二遍是拉着朋友一起看的。”</p>
+          <footer><b>@旧键盘</b><span>收藏于 11 月 18 日</span></footer>
+        </article>
+        <article class="rx-comment">
+          <p>“新人教程真的能当手册用，我按步骤做完，省了至少三个小时的试错。字幕也很干净，没有多余特效。”</p>
+          <footer><b>@第一次开荒</b><span>来源：开荒笔记评论区</span></footer>
+        </article>
+        <article class="rx-comment">
+          <p>“城市玩家那期让我想起自己刚工作时的出租屋，凌晨两点还在打游戏。看完有点想给老朋友打个电话。”</p>
+          <footer><b>@海风与旧唱片</b><span>点赞 2,104</span></footer>
+        </article>
+        <article class="rx-comment">
+          <p>“唯一想提的建议：希望在视频简介里直接给出参考资料列表，这样讨论的时候更方便引用。”</p>
+          <footer><b>@认真的读者</b><span>官方已回复</span></footer>
+        </article>
+        <article class="rx-comment">
+          <p>“投稿之后三天就收到了编辑的修改建议，很具体，不是那种模板回复。这一点在同类平台里很少见。”</p>
+          <footer><b>@第十五号作者</b><span>来源：投稿反馈</span></footer>
+        </article>
+        <article class="rx-comment">
+          <p>“夜航电台我基本每期都听，有时候不为了内容，就是想有个声音陪着。谢谢你们还在做这种慢节目。”</p>
+          <footer><b>@晚班地铁</b><span>点赞 1,876</span></footer>
+        </article>
+        <article class="rx-comment">
+          <p>“希望专题更新能再快一点，但也能理解做深度内容需要时间。宁可慢，也别糊弄。”</p>
+          <footer><b>@等更新的猫</b><span>已加入催更投票</span></footer>
+        </article>
+        <article class="rx-comment">
+          <p>“合作视频的标识做得很清楚，这点值得肯定。看多了含糊不清的软广，会更珍惜这种坦诚。”</p>
+          <footer><b>@透明度观察</b><span>来源：社区长评</span></footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 企业动态 + 合作品牌 -->
+  <section class="rx-section" id="rxNews" aria-labelledby="rxNewsTitle">
+    <div class="rx-container">
+      <div class="rx-section-head">
+        <div>
+          <span class="rx-eyebrow">Newsroom &amp; Partners</span>
+          <h2 id="rxNewsTitle">企业动态与合作品牌</h2>
+          <p class="rx-section-sub">官方发布、内容更新与联合企划，都会在这里同步。</p>
+        </div>
+      </div>
+      <div class="rx-split-grid">
+        <div class="rx-news">
+          <article class="rx-news-item">
+            <time datetime="2026-11-20">2026-11-20</time>
+            <div><b>创作者激励计划 2.0 正式发布</b><p>新增社区投票通道与季度创作基金，签约创作者可申请器材支持。细则已在官网帮助中心公开。</p></div>
+          </article>
+          <article class="rx-news-item">
+            <time datetime="2026-11-16">2026-11-16</time>
+            <div><b>《城市玩家》第三季完成全部拍摄</b><p>本季共收录 12 座城市，新增地方文旅联合策划内容，预计 12 月起分批上线并支持下载收藏。</p></div>
+          </article>
+          <article class="rx-news-item">
+            <time datetime="2026-11-11">2026-11-11</time>
+            <div><b>官方网站完成无障碍与字幕规范升级</b><p>全站视频默认提供中文字幕，重点专题补充章节导航，移动端阅读体验同步优化。</p></div>
+          </article>
+          <article class="rx-news-item">
+            <time datetime="2026-11-05">2026-11-05</time>
+            <div><b>第 5 期玩家镜头挑战赛结果公布</b><p>共收到 1,284 份投稿，最终 10 段作品入围。评审意见与评分表已公开，欢迎查证。</p></div>
+          </article>
+        </div>
+        <div>
+          <h3 style="font-size:15px;margin-bottom:12px;color:#fff">合作品牌与伙伴</h3>
+          <div class="rx-partners">
+            <div class="rx-partner">星轨外设</div>
+            <div class="rx-partner">南岸文创</div>
+            <div class="rx-partner">拾光影像</div>
+            <div class="rx-partner">城市文旅联合体</div>
+            <div class="rx-partner">独立工作室联盟</div>
+            <div class="rx-partner">青柠桌游社</div>
+          </div>
+          <p style="font-size:12.8px;color:var(--rx-muted-2);margin-top:14px">所有合作内容均标注“合作”标识，合作不影响创作者独立表达。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ + 投稿 -->
+  <section class="rx-section" id="rxFaq" aria-labelledby="rxFaqTitle">
+    <div class="rx-container">
+      <div class="rx-section-head">
+        <div>
+          <span class="rx-eyebrow">Help Center</span>
+          <h2 id="rxFaqTitle">常见问题：关于观看、投稿与社区</h2>
+          <p class="rx-section-sub">如果没有找到答案，可通过投稿入口里的“联系我们”提交问题，工作日内会回复。</p>
+        </div>
+      </div>
+      <div class="rx-faq">
+        <details>
+          <summary>R星吃瓜的视频可以下载或二次使用吗？</summary>
+          <p>官网大部分原创视频提供高清下载入口，个人学习与评论引用可直接使用并注明来源；商业用途、二次剪辑与公开放映需通过投稿入口提交授权申请，我们会根据具体场景给出书面答复。</p>
+        </details>
+        <details>
+          <summary>如何成为社区创作者并上传作品？</summary>
+          <p>完成注册与实名认证后，先阅读内容规范并通过一次小测，即可获得上传权限。新人作品会进入编辑初筛，通常在三个工作日内给出具体修改建议。持续稳定更新后，可申请进阶或签约创作者身份。</p>
+        </details>
+        <details>
+          <summary>投稿的题材有限制吗？</summary>
+          <p>我们鼓励游戏文化、玩家生活、创作幕后、城市探索、人物访谈与经验分享等方向。涉及他人隐私、未授权素材或未成年人出镜的内容，需要补充授权材料。我们不接受搬运与洗稿内容。</p>
+        </details>
+        <details>
+          <summary>热点视频为什么有时更新得比别人慢？</summary>
+          <p>因为我们要做事实核对与多方回访。快速发布与信息准确之间，我们选择后者。这也是很多观众愿意在我们这里看完整版的原因。</p>
+        </details>
+        <details>
+          <summary>合作内容是否有明确标识？</summary>
+          <p>有。所有商业合作视频在封面、播放页与简介中均标注“合作”字样。我们与合作伙伴约定不干预创作者正常表达，也不会删除合理的批评意见。</p>
+        </details>
+        <details>
+          <summary>社区评论会被删除吗？</summary>
+          <p>只有违反社区规范的内容会被处理，例如人身攻击、泄露隐私、违法信息与恶意刷屏。正常的不同意见不会被删除，编辑团队会定期整理高频问题并在专题中回应。</p>
+        </details>
+        <details>
+          <summary>如何参与挑战赛与社区投票？</summary>
+          <p>挑战赛通常在官网首页公告条与专题区公布命题，按页面提示提交作品即可。投票功能对注册满七天的用户开放，每人每期拥有固定票数，投票结果会公开公示。</p>
+        </details>
+      </div>
+
+      <div class="rx-submit" style="margin-top:30px">
+        <div>
+          <h2>把你的观察，交给 R星吃瓜</h2>
+          <p>无论是第一次拿起相机的新人，还是已经拍了七年的老朋友，我们都愿意认真看完你的作品。投稿入口长期开放，支持高清上传与在线预览。</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="rx-btn rx-btn--primary" type="button" data-rx-open="submit">进入投稿入口</button>
+          <button class="rx-btn" type="button" data-rx-open="feedback">反馈与举报</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 页脚 -->
+<footer class="rx-footer">
+  <div class="rx-container">
+    <div class="rx-footer-grid">
+      <div class="rx-footer-brand">
+        <div class="rx-brand">
+          <span class="rx-brand-mark" aria-hidden="true">R</span>
+          <span class="rx-brand-text"><b>R星吃瓜</b><small>GAME CULTURE STUDIO</small></span>
+        </div>
+        <p>R星吃瓜官方网站 · 版权所有 · 持续运营中。专注游戏文化与玩家社区的原创高清影像，致力于打造值得信赖的内容生态。</p>
+      </div>
+      <div>
+        <h4>内容</h4>
+        <ul>
+          <li><a href="#rxFocus">热点现场</a></li>
+          <li><a href="#rxSpecial">专题企划</a></li>
+          <li><a href="#rxAnalysis">深度解析</a></li>
+          <li><a href="#rxBoard">榜单与口碑</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>社区</h4>
+        <ul>
+          <li><a href="#rxAuthors">创作者矩阵</a></li>
+          <li><a href="#rxFaq">帮助中心</a></li>
+          <li><button class="rx-link-btn" type="button" data-rx-open="submit">投稿上传</button></li>
+          <li><button class="rx-link-btn" type="button" data-rx-open="share">分享本站</button></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于</h4>
+        <ul>
+          <li><a href="#rxNews">企业动态</a></li>
+          <li><a href="#rxAboutTitle">品牌故事</a></li>
+          <li><button class="rx-link-btn" type="button" data-rx-open="share">联系与合作</button></li>
+          <li><a href="#rxTop">回到首页</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rx-footer-bottom">
+      <span>© 2019–2026 R星吃瓜 官方网站 · 原创正版内容平台</span>
+      <span>持续运营 · 用户至上 · 内容生态共建</span>
+      <span>备案号：示例备案 000000000（演示页面）</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="rx-toast" id="rxToast" role="status" aria-live="polite"></div>
+<button class="rx-backtop" id="rxBackTop" type="button" aria-label="回到顶部">↑</button>
+
+<!-- 通用模态：评论 / 投稿 / 分享 / 反馈 -->
+<div class="rx-modal" id="rxModal" role="dialog" aria-modal="true" aria-labelledby="rxModalTitle">
+  <div class="rx-modal-card">
+    <h3 id="rxModalTitle">操作</h3>
+    <div id="rxModalBody"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 工具 ---------- */
+  var toastEl = document.getElementById('rxToast');
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('is-show'); }, 2200);
+  }
+
+  /* ---------- 移动端导航 ---------- */
+  var navToggle = document.getElementById('rxNavToggle');
+  var mobileNav = document.getElementById('rxMobileNav');
+  if(navToggle){
+    navToggle.addEventListener('click', function(){
+      var open = mobileNav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.textContent = open ? '✕' : '☰';
+    });
+    mobileNav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        mobileNav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded','false');
+        navToggle.textContent = '☰';
+      }
+    });
+  }
+
+  /* ---------- 搜索反馈 ---------- */
+  var searchInput = document.getElementById('rxSearchInput');
+  if(searchInput){
+    var searchTimer = null;
+    searchInput.addEventListener('input', function(){
+      clearTimeout(searchTimer);
+      var q = searchInput.value.trim();
+      if(!q){ return; }
+      searchTimer = setTimeout(function(){
+        var titles = document.querySelectorAll('.rx-video-row h4, .rx-mini-card h4, .rx-author-top b, .rx-special-card h3');
+        var hit = 0;
+        for(var i=0;i<titles.length;i++){
+          if(titles[i].textContent.indexOf(q) !== -1){ hit++; }
+        }
+        if(hit > 0){ toast('找到 ' + hit + ' 条与“' + q + '”相关的内容'); }
+        else { toast('暂无与“' + q + '”直接匹配的内容，试试其他关键词'); }
+      }, 420);
+    });
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); searchInput.dispatchEvent(new Event('input')); }
+    });
+  }
+
+  /* ---------- 点赞 ---------- */
+  document.addEventListener('click', function(e){
+    var likeBtn = e.target.closest('[data-rx-like]');
+    if(likeBtn){
+      var base = parseInt(likeBtn.getAttribute('data-rx-like'), 10) || 0;
+      var span = likeBtn.querySelector('span');
+      if(likeBtn.classList.contains('is-liked')){
+        likeBtn.classList.remove('is-liked');
+        span.textContent = base.toLocaleString('en-US');
+        toast('已取消点赞');
+      } else {
+        likeBtn.classList.add('is-liked');
+        span.textContent = (base + 1).toLocaleString('en-US');
+        toast('感谢你的点赞，已记入推荐参考');
+      }
+      return;
+    }
+
+    /* ---------- 收藏 ---------- */
+    var saveBtn = e.target.closest('[data-rx-save]');
+    if(saveBtn){
+      var on = saveBtn.classList.toggle('is-on');
+      saveBtn.textContent = on ? '★ 已收藏' : '☆ 收藏';
+      toast(on ? '已加入收藏夹' : '已取消收藏');
+      return;
+    }
+
+    /* ---------- 复制链接 ---------- */
+    var copyBtn = e.target.closest('[data-rx-copy]');
+    if(copyBtn){
+      var link = window.location.href.split('#')[0];
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(link).then(function(){ toast('链接已复制，可粘贴分享'); })
+        .catch(function(){ toast('复制失败，请手动复制页面地址'); });
+      } else {
+        toast('当前环境不支持自动复制，请手动复制页面地址');
+      }
+      return;
+    }
+
+    /* ---------- 作者档案 ---------- */
+    var authorBtn = e.target.closest('[data-rx-author]');
+    if(authorBtn){
+      openModal('创作者档案', '<p>' + escapeHTML(authorBtn.getAttribute('data-rx-author')) + '</p>' +
+        '<p style="margin-top:8px;color:#727d99;font-size:12.6px">如需联系作者或申请联合创作，请通过投稿入口提交说明。</p>' +
+        '<div class="rx-modal-actions"><button class="rx-btn" type="button" data-rx-close>关闭</button></div>');
+      return;
+    }
+
+    /* ---------- 打开模态 ---------- */
+    var opener = e.target.closest('[data-rx-open]');
+    if(opener){
+      var kind = opener.getAttribute('data-rx-open');
+      if(kind === 'comment'){ openComment(); }
+      else if(kind === 'submit'){ openSubmit(); }
+      else if(kind === 'share'){ openShare(); }
+      else if(kind === 'feedback'){ openFeedback(); }
+      return;
+    }
+
+    /* ---------- 关闭模态 ---------- */
+    if(e.target.closest('[data-rx-close]') || e.target.id === 'rxModal'){
+      closeModal();
+    }
+  });
+
+  function escapeHTML(str){
+    return String(str).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  var modal = document.getElementById('rxModal');
+  var modalTitle = document.getElementById('rxModalTitle');
+  var modalBody = document.getElementById('rxModalBody');
+
+  function openModal(title, html){
+    modalTitle.textContent = title;
+    modalBody.innerHTML = html;
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    var firstInput = modalBody.querySelector('input,textarea,select,button');
+    if(firstInput){ setTimeout(function(){ firstInput.focus(); }, 30); }
+  }
+  function closeModal(){
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('is-open')){ closeModal(); }
+  });
+
+  function openComment(){
+    openModal('写下你的评论', '' +
+      '<p>评论将展示在热点现场。请保持友善，尊重不同意见。</p>' +
+      '<label for="rxCommentInput">评论内容</label>' +
+      '<textarea id="rxCommentInput" rows="4" maxlength="240" placeholder="说说你的看法，最多 240 字"></textarea>' +
+      '<div class="rx-modal-actions">' +
+        '<button class="rx-btn" type="button" data-rx-close>取消</button>' +
+        '<button class="rx-btn rx-btn--primary" type="button" id="rxCommentSend">提交评论</button>' +
+      '</div>');
+    document.getElementById('rxCommentSend').addEventListener('click', function(){
+      var v = document.getElementById('rxCommentInput').value.trim();
+      if(v.length < 4){ toast('评论太短了，至少写 4 个字'); return; }
+      closeModal();
+      toast('评论已提交，审核通过后展示');
+    });
+  }
+
+  function openSubmit(){
+    openModal('投稿入口', '' +
+      '<p>支持高清视频链接或作品说明上传。编辑会在三个工作日内回复。</p>' +
+      '<label for="rxSubmitTitle">作品标题</label>' +
+      '<input id="rxSubmitTitle" type="text" maxlength="60" placeholder="例如：我的一次选择">' +
+      '<label for="rxSubmitType">内容方向</label>' +
+      '<select id="rxSubmitType">' +
+        '<option>深度解析</option><option>城市探索</option><option>人物访谈</option>' +
+        '<option>创作幕后</option><option>教程干货</option><option>情感故事</option>' +
+      '</select>' +
+      '<label for="rxSubmitDesc">作品说明</label>' +
+      '<textarea id="rxSubmitDesc" rows="3" maxlength="200" placeholder="简要说明拍摄背景与核心表达"></textarea>' +
+      '<label for="rxSubmitContact">联系方式</label>' +
+      '<input id="rxSubmitContact" type="text" maxlength="60" placeholder="邮箱或常用社交账号">' +
+      '<div class="rx-modal-actions">' +
+        '<button class="rx-btn" type="button" data-rx-close>取消</button>' +
+        '<button class="rx-btn rx-btn--primary" type="button" id="rxSubmitSend">提交投稿</button>' +
+      '</div>');
+    document.getElementById('rxSubmitSend').addEventListener('click', function(){
+      var t = document.getElementById('rxSubmitTitle').value.trim();
+      var c = document.getElementById('rxSubmitContact').value.trim();
+      if(t.length < 2){ toast('请填写作品标题'); return; }
+      if(c.length < 3){ toast('请填写有效联系方式'); return; }
+      closeModal();
+      toast('投稿已提交，编辑将尽快联系你');
+    });
+  }
+
+  function openShare(){
+    openModal('分享 R星吃瓜', '' +
+      '<p>把这篇内容分享给同样关注游戏文化的朋友。</p>' +
+      '<div class="rx-share-row">' +
+        '<button class="rx-btn" type="button" data-rx-share="微信">微信</button>' +
+        '<button class="rx-btn" type="button" data-rx-share="微博">微博</button>' +
+        '<button class="rx-btn" type="button" data-rx-share="QQ">QQ</button>' +
+        '<button class="rx-btn" type="button" data-rx-share="复制链接">复制链接</button>' +
+      '</div>' +
+      '<div class="rx-modal-actions"><button class="rx-btn" type="button" data-rx-close>关闭</button></div>');
+    var row = modalBody.querySelector('.rx-share-row');
+    row.addEventListener('click', function(e){
+      var b = e.target.closest('[data-rx-share]');
+      if(!b){ return; }
+      var target = b.getAttribute('data-rx-share');
+      if(target === '复制链接'){
+        var link = window.location.href.split('#')[0];
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(link).then(function(){ toast('链接已复制'); })
+          .catch(function(){ toast('复制失败，请手动复制页面地址'); });
+        } else {
+          toast('当前环境不支持自动复制，请手动复制页面地址');
+        }
+      } else {
+        toast('已生成' + target + '分享提示');
+      }
+    });
+  }
+
+  function openFeedback(){
+    openModal('反馈与举报', '' +
+      '<p>遇到内容问题、版权疑问或使用故障，都可以在这里提交。</p>' +
+      '<label for="rxFeedbackType">反馈类型</label>' +
+      '<select id="rxFeedbackType">' +
+        '<option>内容纠错</option><option>版权与授权</option>' +
+        '<option>社区违规举报</option><option>功能故障</option><option>合作咨询</option>' +
+      '</select>' +
+      '<label for="rxFeedbackText">详细说明</label>' +
+      '<textarea id="rxFeedbackText" rows="4" maxlength="300" placeholder="请尽量描述清楚时间、页面与具体问题"></textarea>' +
+      '<div class="rx-modal-actions">' +
+        '<button class="rx-btn" type="button" data-rx-close>取消</button>' +
+        '<button class="rx-btn rx-btn--primary" type="button" id="rxFeedbackSend">提交反馈</button>' +
+      '</div>');
+    document.getElementById('rxFeedbackSend').addEventListener('click', function(){
+      var v = document.getElementById('rxFeedbackText').value.trim();
+      if(v.length < 5){ toast('请补充更具体的说明'); return; }
+      closeModal();
+      toast('反馈已提交，感谢你的帮助');
+    });
+  }
+
+  /* ---------- 回到顶部 ---------- */
+  var backTop = document.getElementById('rxBackTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 620){ backTop.classList.add('is-show'); }
+    else { backTop.classList.remove('is-show'); }
+  }, {passive:true});
+  backTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* ---------- 卡片悬停由 CSS 处理，这里是选项卡片的键盘可达性增强 ---------- */
+  var focusables = document.querySelectorAll('.rx-focus-main, .rx-mini-card, .rx-special-card, .rx-author-card');
+  for(var i=0;i<focusables.length;i++){
+    focusables[i].setAttribute('tabindex','0');
+  }
+})();
+</script>
+</body>
+  </html>
